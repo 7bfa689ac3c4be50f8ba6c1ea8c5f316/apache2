@@ -16,7 +16,7 @@
 #
 require "#{ENV['BUSSER_ROOT']}/../kitchen/data/serverspec_helper"
 
-describe 'ga-apache2::mod_cgid', :unless => property[:apache][:mpm] == 'prefork' do
+describe 'apache2::mod_cgid', :unless => property[:apache][:mpm] == 'prefork' do
   expected_module = 'cgid'
   subject(:available) { file("#{property[:apache][:dir]}/mods-available/#{expected_module}.load") }
   it "mods-available/#{expected_module}.load is accurate" do

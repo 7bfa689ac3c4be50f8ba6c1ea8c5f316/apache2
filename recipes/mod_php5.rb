@@ -1,5 +1,5 @@
 #
-# Cookbook Name:: ga-apache2
+# Cookbook Name:: apache2
 # Recipe:: mod_php5
 #
 # Copyright 2008-2013, Chef Software, Inc.
@@ -20,9 +20,9 @@
 #
 
 if node['apache']['mpm'] != 'prefork'
-  Chef::Log.warn('ga-apache2::mod_php5 generally is expected to be run under a non-threaded MPM, such as prefork')
+  Chef::Log.warn('apache2::mod_php5 generally is expected to be run under a non-threaded MPM, such as prefork')
   Chef::Log.warn('See http://php.net/manual/en/faq.installation.php#faq.installation.apache2')
-  Chef::Log.warn("Currently the ga-apache2 cookbook is configured to use the '#{node['apache']['mpm']}' MPM")
+  Chef::Log.warn("Currently the apache2 cookbook is configured to use the '#{node['apache']['mpm']}' MPM")
 end
 
 case node['platform_family']

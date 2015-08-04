@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe 'ga-apache2::mod_fcgid' do
+describe 'apache2::mod_fcgid' do
   supported_platforms.each do |platform, versions|
     versions.each do |version|
       property = load_platform_properties(:platform => platform, :platform_version => version)
@@ -16,7 +16,7 @@ describe 'ga-apache2::mod_fcgid' do
       end
 
       context "on #{platform.capitalize} #{version}" do
-        it_should_behave_like 'an ga-apache2 module', 'fcgid', true
+        it_should_behave_like 'an apache2 module', 'fcgid', true
       end
     end
   end

@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe 'ga-apache2::mod_perl' do
+describe 'apache2::mod_perl' do
   supported_platforms.each do |platform, versions|
     versions.each do |version|
       context "on #{platform.capitalize} #{version}" do
@@ -32,12 +32,12 @@ describe 'ga-apache2::mod_perl' do
           end
         end
         if %w(suse).include?(platform)
-          it 'installs package ga-apache2-mod_perl' do
-            expect(chef_run).to install_package('ga-apache2-mod_perl')
+          it 'installs package apache2-mod_perl' do
+            expect(chef_run).to install_package('apache2-mod_perl')
             expect(chef_run).to_not install_package('not_apache2-mod_perl')
           end
-          let(:package) { chef_run.package('ga-apache2-mod_perl') }
-          it 'triggers a notification by ga-apache2-mod_perl package install to execute[generate-module-list]' do
+          let(:package) { chef_run.package('apache2-mod_perl') }
+          it 'triggers a notification by apache2-mod_perl package install to execute[generate-module-list]' do
             expect(package).to notify('execute[generate-module-list]').to(:run)
             expect(package).to_not notify('execute[generate-module-list]').to(:nothing)
           end
@@ -47,7 +47,7 @@ describe 'ga-apache2::mod_perl' do
           end
         end
         if %w(debian ubuntu).include?(platform)
-          %w(libapache2-mod-perl2 libapache2-request-perl ga-apache2-mpm-prefork).each do |pkg|
+          %w(libapache2-mod-perl2 libapache2-request-perl apache2-mpm-prefork).each do |pkg|
             it "installs package #{pkg}" do
               expect(chef_run).to install_package(pkg)
               expect(chef_run).to_not install_package("not_#{pkg}")
@@ -59,7 +59,7 @@ describe 'ga-apache2::mod_perl' do
           expect(chef_run).to delete_file("#{property[:apache][:dir]}/conf.d/perl.conf").with(:backup => false)
           expect(chef_run).to_not delete_file("#{property[:apache][:dir]}/conf.d/perl.conf").with(:backup => true)
         end
-        it_should_behave_like 'an ga-apache2 module', 'perl', false
+        it_should_behave_like 'an apache2 module', 'perl', false
       end
     end
   end

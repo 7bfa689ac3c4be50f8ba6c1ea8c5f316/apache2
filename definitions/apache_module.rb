@@ -1,5 +1,5 @@
 #
-# Cookbook Name:: ga-apache2
+# Cookbook Name:: apache2
 # Definition:: apache_module
 #
 # Copyright 2008-2013, Chef Software, Inc.

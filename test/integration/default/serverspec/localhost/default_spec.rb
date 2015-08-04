@@ -15,7 +15,7 @@
 #
 require "#{ENV['BUSSER_ROOT']}/../kitchen/data/serverspec_helper"
 
-describe 'ga-apache2::default' do
+describe 'apache2::default' do
 
   it "package #{property[:apache][:package]} is installed" do
     expect(package(property[:apache][:package])).to be_installed
@@ -90,7 +90,7 @@ describe 'ga-apache2::default' do
   end
 
   #  it 'only listens on port 443 when SSL is enabled' do
-  #    unless ran_recipe?('ga-apache2::mod_ssl')
+  #    unless ran_recipe?('apache2::mod_ssl')
   #      apache_configured_ports.wont_include(443)
   #    end
   #  end

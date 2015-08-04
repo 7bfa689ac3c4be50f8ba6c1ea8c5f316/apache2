@@ -1,5 +1,5 @@
 #
-# Cookbook:: ga-apache2_test
+# Cookbook:: apache2_test
 # Recipe:: modules
 #
 # Author:: Joshua Timberman <joshua@chef.io>

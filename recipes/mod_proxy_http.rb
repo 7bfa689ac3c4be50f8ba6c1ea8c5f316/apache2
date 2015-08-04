@@ -1,5 +1,5 @@
 #
-# Cookbook Name:: ga-apache2
+# Cookbook Name:: apache2
 # Recipe:: mod_proxy_http
 #
 # Copyright 2008-2013, Chef Software, Inc.

@@ -1,5 +1,5 @@
 #
-# Cookbook Name:: ga-apache2_test
+# Cookbook Name:: apache2_test
 # Recipe:: mod_authz_listed_host
 #
 # Copyright 2012, Chef Software, Inc.

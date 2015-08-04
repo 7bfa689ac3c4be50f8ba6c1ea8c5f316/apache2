@@ -3,7 +3,7 @@ require 'spec_helper'
 mpm_modules = %w(prefork worker event)
 
 mpm_modules.each do |mpm|
-  describe "ga-apache2::mpm_#{mpm}" do
+  describe "apache2::mpm_#{mpm}" do
     supported_platforms.each do |platform, versions|
       versions.each do |version|
         property = load_platform_properties(:platform => platform, :platform_version => version)
@@ -19,7 +19,7 @@ mpm_modules.each do |mpm|
         end
 
         context "on #{platform.capitalize} #{version}" do
-          it_should_behave_like 'an ga-apache2 module', "mpm_#{mpm}", true, nil, true
+          it_should_behave_like 'an apache2 module', "mpm_#{mpm}", true, nil, true
         end
       end
     end

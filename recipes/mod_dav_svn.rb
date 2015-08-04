@@ -1,5 +1,5 @@
 #
-# Cookbook Name:: ga-apache2
+# Cookbook Name:: apache2
 # Recipe:: mod_dav_svn
 #
 # Copyright 2008-2009, Chef Software, Inc.

@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe 'ga-apache2::mod_fastcgi' do
+describe 'apache2::mod_fastcgi' do
   shared_examples 'rhel installs compilation tools' do
     it 'installs compilation tools' do
       %w(gcc make libtool httpd-devel apr-devel apr).each do |package|
@@ -11,7 +11,7 @@ describe 'ga-apache2::mod_fastcgi' do
   shared_examples 'debian installs compilation tools' do
     it 'installs compilation tools' do
       expect(chef_run).to install_package('build-essential')
-      expect(chef_run).to install_package('ga-apache2-dev')
+      expect(chef_run).to install_package('apache2-dev')
     end
   end
   shared_examples "debian doesn't install compilation tools" do
@@ -56,7 +56,7 @@ describe 'ga-apache2::mod_fastcgi' do
           it_should_behave_like 'rhel installs compilation tools'
           it_should_behave_like 'compiles mod_fastcgi from source'
         end
-        it_should_behave_like 'an ga-apache2 module', 'fastcgi', true
+        it_should_behave_like 'an apache2 module', 'fastcgi', true
 
         context 'we force to use mod_fastcgi source' do
           let(:chef_run) do

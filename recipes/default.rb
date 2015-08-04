@@ -1,5 +1,5 @@
 #
-# Cookbook Name:: ga-apache2
+# Cookbook Name:: apache2
 # Recipe:: default
 #
 # Copyright 2008-2013, Chef Software, Inc.
@@ -18,7 +18,7 @@
 # limitations under the License.
 #
 
-package 'ga-apache2' do
+package 'apache2' do
   package_name node['apache']['package']
 end
 
@@ -72,7 +72,7 @@ end
 
 unless platform_family?('debian')
   cookbook_file '/usr/local/bin/apache2_module_conf_generate.pl' do
-    source 'ga-apache2_module_conf_generate.pl'
+    source 'apache2_module_conf_generate.pl'
     mode '0755'
     owner 'root'
     group node['apache']['root_group']
@@ -155,7 +155,7 @@ template "#{node['apache']['dir']}/envvars" do
   only_if  { platform_family?('debian') }
 end
 
-template 'ga-apache2.conf' do
+template 'apache2.conf' do
   if platform_family?('rhel', 'fedora', 'arch', 'freebsd')
     path "#{node['apache']['conf_dir']}/httpd.conf"
   elsif platform_family?('debian')
@@ -164,7 +164,7 @@ template 'ga-apache2.conf' do
     path "#{node['apache']['conf_dir']}/httpd.conf"
   end
   action :create
-  source 'ga-apache2.conf.erb'
+  source 'apache2.conf.erb'
   owner 'root'
   group node['apache']['root_group']
   mode '0644'
@@ -187,7 +187,7 @@ if node['apache']['version'] == '2.4' && !platform_family?('freebsd')
   if node['apache']['mpm_support'].include?(node['apache']['mpm'])
     include_recipe "ga-apache2::mpm_#{node['apache']['mpm']}"
   else
-    Chef::Log.warn("ga-apache2: #{node['apache']['mpm']} module is not supported and must be handled separately!")
+    Chef::Log.warn("apache2: #{node['apache']['mpm']} module is not supported and must be handled separately!")
   end
 end
 
@@ -203,7 +203,7 @@ if node['apache']['default_site_enabled']
   end
 end
 
-service 'ga-apache2' do
+service 'apache2' do
   service_name node['apache']['service_name']
   case node['platform_family']
   when 'rhel'

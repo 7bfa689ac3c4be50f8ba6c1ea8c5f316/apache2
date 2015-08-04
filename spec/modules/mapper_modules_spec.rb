@@ -4,7 +4,7 @@ require 'spec_helper'
 mappers_modules_without_config = %w(rewrite)
 mappers_modules_with_config = %w(actions alias dir userdir negotiation)
 mappers_modules_without_config.each do |mod|
-  describe "ga-apache2::mod_#{mod}" do
+  describe "apache2::mod_#{mod}" do
     supported_platforms.each do |platform, versions|
       versions.each do |version|
         property = load_platform_properties(:platform => platform, :platform_version => version)
@@ -20,14 +20,14 @@ mappers_modules_without_config.each do |mod|
         end
 
         context "on #{platform.capitalize} #{version}" do
-          it_should_behave_like 'an ga-apache2 module', mod, false
+          it_should_behave_like 'an apache2 module', mod, false
         end
       end
     end
   end
 end
 mappers_modules_with_config.each do |mod|
-  describe "ga-apache2::mod_#{mod}" do
+  describe "apache2::mod_#{mod}" do
     supported_platforms.each do |platform, versions|
       versions.each do |version|
         property = load_platform_properties(:platform => platform, :platform_version => version)
@@ -43,7 +43,7 @@ mappers_modules_with_config.each do |mod|
         end
 
         context "on #{platform.capitalize} #{version}" do
-          it_should_behave_like 'an ga-apache2 module', mod, true
+          it_should_behave_like 'an apache2 module', mod, true
         end
       end
     end

@@ -1,5 +1,5 @@
 #
-# Cookbook Name:: ga-apache2
+# Cookbook Name:: apache2
 # Recipe:: mod_unixd
 #
 # Copyright 2014, OneHealth Solutions, Inc.
@@ -17,9 +17,9 @@
 # limitations under the License.
 #
 
-# on platform_family debian this module is staticly linked into ga-apache2
+# on platform_family debian this module is staticly linked into apache2
 if node['apache']['version'] == '2.4' && !platform_family?('debian')
   apache_module 'unixd'
 else
-  log 'Ignoring ga-apache2::mod_unixd. Not available until apache 2.4'
+  log 'Ignoring apache2::mod_unixd. Not available until apache 2.4'
 end

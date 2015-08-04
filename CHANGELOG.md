@@ -1,13 +1,13 @@
 apache2 Cookbook Changelog
 ==========================
-This file is used to list changes made in each version of the ga-apache2 cookbook.
+This file is used to list changes made in each version of the apache2 cookbook.
 
 v3.1.0 (2015-05-25)
 -------------------
 
 - [GH-315] Fix `apache.default_site_name` .conf extension references to ensure deletion
 - [GH-258] Use `apache.default_site_name` for consistency, minimize hardcoding of filenames
-- [GH-259] Add `&& sleep 1` to end of apache restart command on rhel-based systems using ga-apache2.2
+- [GH-259] Add `&& sleep 1` to end of apache restart command on rhel-based systems using apache2.2
 - [GH-271] Remove FreeBSD 9.x, Red Hat and CentOS 5.x and OpenSUSE 11.x Series from tests and focus on newer releases
 - [GH-276] Add psych gem to development gems
 - [GH-293] Add `apache.mod_fastcgi.install_method` flag to allow install of mod_fastcgi from source (even on Debian family)
@@ -72,7 +72,7 @@ Major version update because of SSL Improvements and new platform MPM and Versio
 - Remove ArchLinux pacman as a dependency and handle similar to apt, yum, zypper
 - Adjust ubuntu apache 2.4 docroot_dir to match package (from /var/www to /var/www/html)
 - [GH-238] Bump service config syntax check guard timeout to 10 seconds
-- [GH-235] Removed `ga-apache2::mpm_itk` which is not part of core and therefore should be its own cookbook
+- [GH-235] Removed `apache2::mpm_itk` which is not part of core and therefore should be its own cookbook
 - [GH-234] /var/run/httpd/mod_fcgid directory now belongs to apache on Fedora/RHEL systems.
 - [GH-233] Default web_app template should return 503 status code when maintenance file is present
 - [GH-232] Cookbook now deletes a2* if they are symlinks before dropping template versions
@@ -182,11 +182,11 @@ v1.9.0 (2014-02-21)
 -------------------
 ### Improvement
 - **[COOK-4076](https://tickets.chef.io/browse/COOK-4076)** - foodcritic: dependencies are not defined properly
-- **[COOK-2572](https://tickets.chef.io/browse/COOK-2572)** - Add mod_pagespeed recipe to ga-apache2
+- **[COOK-2572](https://tickets.chef.io/browse/COOK-2572)** - Add mod_pagespeed recipe to apache2
 
 ### Bug
-- **[COOK-4043](https://tickets.chef.io/browse/COOK-4043)** - ga-apache2 cookbook does not depend on 'iptables'
-- **[COOK-3919](https://tickets.chef.io/browse/COOK-3919)** - Move the default pidfile for ga-apache2 on Ubuntu 13.10 or greater
+- **[COOK-4043](https://tickets.chef.io/browse/COOK-4043)** - apache2 cookbook does not depend on 'iptables'
+- **[COOK-3919](https://tickets.chef.io/browse/COOK-3919)** - Move the default pidfile for apache2 on Ubuntu 13.10 or greater
 - **[COOK-3863](https://tickets.chef.io/browse/COOK-3863)** - Add recipe for mod_jk
 - **[COOK-3804](https://tickets.chef.io/browse/COOK-3804)** - Fix incorrect datatype for apache/default_modules, use recipes option in metadata
 - **[COOK-3800](https://tickets.chef.io/browse/COOK-3800)** - Cannot load modules that use non-standard module identifiers
@@ -245,7 +245,7 @@ v1.8.0
 - **[COOK-3213](https://tickets.chef.io/browse/COOK-3213)** - Add recipe for mod_info
 
 ### Improvement
-- **[COOK-3656](https://tickets.chef.io/browse/COOK-3656)** - Parameterize ga-apache2 binary
+- **[COOK-3656](https://tickets.chef.io/browse/COOK-3656)** - Parameterize apache2 binary
 - **[COOK-3562](https://tickets.chef.io/browse/COOK-3562)** - Allow mod_proxy settings to be configured as attributes
 - **[COOK-3326](https://tickets.chef.io/browse/COOK-3326)** - Fix default_test to use ServerTokens attribute
 - **[COOK-2635](https://tickets.chef.io/browse/COOK-2635)** - Add support for SVG mime types
@@ -272,7 +272,7 @@ v1.6.6
 
 ### Bug
 
-- [COOK-3018]: ga-apache2_module does duplicate delayed restart of ga-apache2 service when conf = true
+- [COOK-3018]: apache2_module does duplicate delayed restart of apache2 service when conf = true
 - [COOK-3027]: Default site enable true, then false, does not disable default site
 - [COOK-3109]: fix apache lib_dir arch attribute regexp
 
@@ -280,12 +280,12 @@ v1.6.2
 ------
 - [COOK-2535] - `mod_auth_openid` requires libtool to run autogen.sh
 - [COOK-2667] - Typo in usage documentation
-- [COOK-2461] - `ga-apache2::mod_auth_openid` fails on some ubuntu systems
+- [COOK-2461] - `apache2::mod_auth_openid` fails on some ubuntu systems
 - [COOK-2720] - Apache2 minitest helper function `ran_recipe` is not portable
 
 v1.6.0
 ------
-- [COOK-2372] - ga-apache2 mpm_worker: add ServerLimit attribute (default to 16)
+- [COOK-2372] - apache2 mpm_worker: add ServerLimit attribute (default to 16)
 
 v1.5.0
 ------
@@ -293,9 +293,9 @@ The `mod_auth_openid` attributes are changed. The upstream maintainer deprecated
 
 - [COOK-2198] - `apache::mod_auth_openid` compiles from source, but does not install make on debian/ubuntu
 - [COOK-2224] - version conflict between cucumber and other gems
-- [COOK-2248] - `ga-apache2::mod_php5` uses `not_if` "which php" without ensuring package 'which' is installed
+- [COOK-2248] - `apache2::mod_php5` uses `not_if` "which php" without ensuring package 'which' is installed
 - [COOK-2269] - Set allow list for mod_status incase external monitor scripts need
-- [COOK-2276] - cookbook ga-apache2 documentation regarding listening ports doesn't match default attributes
+- [COOK-2276] - cookbook apache2 documentation regarding listening ports doesn't match default attributes
 - [COOK-2296] - `mod_auth_openid` doesn't have tags/releases for the version I need for features and fixes
 - [COOK-2323] - Add Oracle linux support
 
@@ -306,12 +306,12 @@ v1.4.2
 v1.4.0
 ------
 - [COOK-1456] - iptables enhancements
-- [COOK-1473] - ga-apache2 does not disable default site when setting "`default_site_enabled`" back to false
-- [COOK-1824] - the ga-apache2 cookbook needs to specify which binary is used on rhel platform
-- [COOK-1916] - Download location wrong for ga-apache2 `mod_auth_openid` >= 0.7
+- [COOK-1473] - apache2 does not disable default site when setting "`default_site_enabled`" back to false
+- [COOK-1824] - the apache2 cookbook needs to specify which binary is used on rhel platform
+- [COOK-1916] - Download location wrong for apache2 `mod_auth_openid` >= 0.7
 - [COOK-1917] - Improve `mod_auth_openid` recipe to handle module upgrade more gracefully
-- [COOK-2029] - ga-apache2 restarts on every run on RHEL and friends, generate-module-list on every run.
-- [COOK-2036] - ga-apache2: Cookbook style
+- [COOK-2029] - apache2 restarts on every run on RHEL and friends, generate-module-list on every run.
+- [COOK-2036] - apache2: Cookbook style
 
 v1.3.2
 ------
@@ -333,11 +333,11 @@ v1.1.16
 re-releasing as .16 due to error on tag 1.1.14
 
 - [COOK-1466] - add `mod_auth_cas` recipe
-- [COOK-1609] - ga-apache2 changes ports.conf twice per run when using ga-apache2::mod_ssl
+- [COOK-1609] - apache2 changes ports.conf twice per run when using apache2::mod_ssl
 
 v1.1.12
 -------
-- [COOK-1436] - restore ga-apache2 web_app definition
+- [COOK-1436] - restore apache2 web_app definition
 - [COOK-1356] - allow ExtendedStatus via attribute
 - [COOK-1403] - add mod_fastcgi recipe
 
@@ -364,7 +364,7 @@ v1.1.4
 
 v1.1.2
 ------
-- [COOK-996] - ga-apache2::mod_php5 can cause PHP and module API mismatches
+- [COOK-996] - apache2::mod_php5 can cause PHP and module API mismatches
 - [COOK-1083] - return string for v_f_p and use correct value for default
 
 v1.1.0

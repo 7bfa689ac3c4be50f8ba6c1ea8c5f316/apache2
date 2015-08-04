@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe 'ga-apache2::mod_authn_core' do
+describe 'apache2::mod_authn_core' do
   supported_platforms.each do |platform, versions|
     versions.each do |version|
       context "on #{platform.capitalize} #{version}" do
@@ -16,11 +16,11 @@ describe 'ga-apache2::mod_authn_core' do
 
         if property[:apache][:version] == '2.2'
           it 'writes to the log' do
-            expect(chef_run).to write_log('Ignoring ga-apache2::mod_authn_core. not available until apache 2.4')
+            expect(chef_run).to write_log('Ignoring apache2::mod_authn_core. not available until apache 2.4')
           end
         else
           if property[:apache][:version] == '2.4'
-            # it_should_behave_like 'an ga-apache2 module', 'authn_core', false
+            # it_should_behave_like 'an apache2 module', 'authn_core', false
           end
         end
       end

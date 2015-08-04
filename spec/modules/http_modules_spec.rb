@@ -2,7 +2,7 @@ require 'spec_helper'
 
 http_modules_with_config = %w(mime)
 http_modules_with_config.each do |mod|
-  describe "ga-apache2::mod_#{mod}" do
+  describe "apache2::mod_#{mod}" do
     supported_platforms.each do |platform, versions|
       versions.each do |version|
         property = load_platform_properties(:platform => platform, :platform_version => version)
@@ -18,7 +18,7 @@ http_modules_with_config.each do |mod|
         end
 
         context "on #{platform.capitalize} #{version}" do
-          it_should_behave_like 'an ga-apache2 module', mod, true
+          it_should_behave_like 'an apache2 module', mod, true
         end
       end
     end
