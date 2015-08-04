@@ -19,7 +19,7 @@
 #
 
 if !platform_family?('freebsd') && node['apache']['version'] == '2.4'
-  include_recipe 'apache2::mod_slotmem_shm'
+  include_recipe 'ga-apache2::mod_slotmem_shm'
 end
 
 apache_module 'proxy_balancer' do

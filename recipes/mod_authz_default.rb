@@ -18,4 +18,4 @@
 #
 #
 log 'apache2::mod_authz_default is deprecated in favor of apache2::mod_authz_core. Please adjust your cookbooks'
-include_recipe 'apache2::mod_authz_core'
+include_recipe 'ga-apache2::mod_authz_core'

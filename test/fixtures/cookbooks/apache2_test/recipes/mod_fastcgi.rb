@@ -17,5 +17,5 @@
 # limitations under the License.
 #
 
-include_recipe 'apache2::default'
-include_recipe 'apache2::mod_fastcgi'
+include_recipe 'ga-apache2::default'
+include_recipe 'ga-apache2::mod_fastcgi'

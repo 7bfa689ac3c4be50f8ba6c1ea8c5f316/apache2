@@ -17,8 +17,8 @@
 # limitations under the License.
 #
 
-include_recipe 'apache2::default'
-include_recipe 'apache2::mod_auth_openid'
+include_recipe 'ga-apache2::default'
+include_recipe 'ga-apache2::mod_auth_openid'
 
 directory "#{node['apache_test']['root_dir']}/secure" do
   action :create

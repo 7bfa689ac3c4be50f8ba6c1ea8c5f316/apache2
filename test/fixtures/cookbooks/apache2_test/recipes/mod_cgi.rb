@@ -17,8 +17,8 @@
 # limitations under the License.
 #
 
-include_recipe 'apache2::default'
-include_recipe 'apache2::mod_cgi'
+include_recipe 'ga-apache2::default'
+include_recipe 'ga-apache2::mod_cgi'
 
 directory node['apache_test']['cgi_dir'] do
   action :create

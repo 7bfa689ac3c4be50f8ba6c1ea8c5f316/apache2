@@ -17,14 +17,14 @@
 # limitations under the License.
 #
 
-include_recipe 'apache2::default'
+include_recipe 'ga-apache2::default'
 
 package 'subversion' do
   action :install
 end
 
-include_recipe 'apache2::mod_dav'
-include_recipe 'apache2::mod_dav_svn'
+include_recipe 'ga-apache2::mod_dav'
+include_recipe 'ga-apache2::mod_dav_svn'
 
 directory node['apache_test']['svn_dir'] do
   owner node['apache']['user']
