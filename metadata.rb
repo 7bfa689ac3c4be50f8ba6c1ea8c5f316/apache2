@@ -1,4 +1,4 @@
-name 'apache2'
+name 'abk-fix-apache2'
 maintainer 'Sander van Zoest'
 maintainer_email 'sander+cookbooks@vanzoest.com'
 issues_url 'https://github.com/svanzoest-cookbooks/apache2/issues'
