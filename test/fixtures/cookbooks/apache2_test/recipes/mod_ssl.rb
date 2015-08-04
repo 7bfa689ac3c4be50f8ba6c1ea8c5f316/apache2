@@ -17,8 +17,8 @@
 # limitations under the License.
 #
 
-include_recipe 'apache2::default'
-include_recipe 'apache2::mod_ssl'
+include_recipe 'ga-apache2::default'
+include_recipe 'ga-apache2::mod_ssl'
 
 directory node['apache_test']['ssl_dir'] do
   owner node['apache']['user']

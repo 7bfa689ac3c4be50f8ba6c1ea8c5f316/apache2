@@ -17,7 +17,7 @@
 # limitations under the License.
 #
 
-include_recipe 'apache2::default'
+include_recipe 'ga-apache2::default'
 
 template "#{node['apache']['dir']}/mods-available/status.conf" do
   source 'status.conf.erb'

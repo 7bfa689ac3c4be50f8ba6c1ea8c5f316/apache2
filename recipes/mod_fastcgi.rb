@@ -45,7 +45,7 @@ if platform_family?('rhel') || (platform_family?('debian') && node['apache']['mo
   else
     top_dir = node['apache']['lib_dir']
   end
-  include_recipe 'apache2::default'
+  include_recipe 'ga-apache2::default'
   bash 'compile fastcgi source' do
     notifies :run, 'execute[generate-module-list]', :immediately if platform_family?('rhel')
     not_if "test -f #{node['apache']['dir']}/mods-available/fastcgi.conf"

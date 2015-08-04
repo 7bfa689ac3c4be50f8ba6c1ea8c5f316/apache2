@@ -17,9 +17,9 @@
 # limitations under the License.
 #
 
-include_recipe 'apache2::default'
-include_recipe 'apache2::mod_proxy'
-include_recipe 'apache2::mod_proxy_ajp'
+include_recipe 'ga-apache2::default'
+include_recipe 'ga-apache2::mod_proxy'
+include_recipe 'ga-apache2::mod_proxy_ajp'
 
 if platform_family?('rhel') && node['platform_version'].to_f < 6.0
   # include jpackage

@@ -19,7 +19,7 @@
 # limitations under the License.
 #
 
-include_recipe 'apache2::default'
+include_recipe 'ga-apache2::default'
 
 case node['platform_family']
 when 'debian'

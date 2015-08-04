@@ -20,7 +20,7 @@ unless node['apache']['listen_ports'].include?(node['apache']['mod_ssl']['port']
   node.default['apache']['listen_ports'] = node['apache']['listen_ports'] + [node['apache']['mod_ssl']['port']]
 end
 
-include_recipe 'apache2::default'
+include_recipe 'ga-apache2::default'
 
 if platform_family?('rhel', 'fedora', 'suse')
   package node['apache']['mod_ssl']['pkg_name'] do
@@ -45,5 +45,5 @@ apache_module 'ssl' do
 end
 
 if node['apache']['version'] == '2.4'
-  include_recipe 'apache2::mod_socache_shmcb'
+  include_recipe 'ga-apache2::mod_socache_shmcb'
 end

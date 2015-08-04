@@ -17,7 +17,7 @@
 # limitations under the License.
 #
 
-include_recipe 'apache2::default'
+include_recipe 'ga-apache2::default'
 
 app_dir = "#{node['apache_test']['root_dir']}/basic_web_app"
 

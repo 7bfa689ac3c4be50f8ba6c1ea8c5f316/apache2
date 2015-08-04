@@ -20,5 +20,5 @@
 if platform_family?('rhel', 'fedora', 'suse', 'arch', 'freebsd')
   apache_module 'logio'
 else
-  include_recipe 'apache2::default'
+  include_recipe 'ga-apache2::default'
 end

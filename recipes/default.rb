@@ -84,7 +84,7 @@ unless platform_family?('debian')
   end
 
   # enable mod_deflate for consistency across distributions
-  include_recipe 'apache2::mod_deflate'
+  include_recipe 'ga-apache2::mod_deflate'
 end
 
 if platform_family?('freebsd')
@@ -185,7 +185,7 @@ end
 if node['apache']['version'] == '2.4' && !platform_family?('freebsd')
   # on freebsd the prefork mpm is staticly compiled in
   if node['apache']['mpm_support'].include?(node['apache']['mpm'])
-    include_recipe "apache2::mpm_#{node['apache']['mpm']}"
+    include_recipe "ga-apache2::mpm_#{node['apache']['mpm']}"
   else
     Chef::Log.warn("apache2: #{node['apache']['mpm']} module is not supported and must be handled separately!")
   end
@@ -193,7 +193,7 @@ end
 
 node['apache']['default_modules'].each do |mod|
   module_recipe_name = mod =~ /^mod_/ ? mod : "mod_#{mod}"
-  include_recipe "apache2::#{module_recipe_name}"
+  include_recipe "ga-apache2::#{module_recipe_name}"
 end
 
 if node['apache']['default_site_enabled']

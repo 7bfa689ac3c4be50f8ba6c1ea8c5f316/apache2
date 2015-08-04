@@ -232,7 +232,7 @@ Other/Unsupported MPM
 To use the cookbook with an unsupported mpm (other than prefork, event or worker):
 
 * set `node['apache']['mpm']` to the name of the module (e.g. `itk`)
-* in your cookbook, after `include_recipe 'apache2'` use the `apache_module` definition to enable/disable the required module(s)
+* in your cookbook, after `include_recipe 'ga-apache2'` use the `apache_module` definition to enable/disable the required module(s)
 
 
 mod\_auth\_openid attributes

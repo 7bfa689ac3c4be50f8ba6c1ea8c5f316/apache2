@@ -17,14 +17,14 @@
 # limitations under the License.
 #
 
-include_recipe 'apache2::default'
+include_recipe 'ga-apache2::default'
 
 package 'which' do
   action :install
   only_if { platform_family?('rhel', 'fedora') }
 end
 
-include_recipe 'apache2::mod_php5'
+include_recipe 'ga-apache2::mod_php5'
 
 directory node['apache_test']['app_dir'] do
   recursive true

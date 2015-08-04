@@ -17,8 +17,8 @@
 # limitations under the License.
 #
 
-include_recipe 'apache2::default'
-include_recipe 'apache2::mod_expires'
+include_recipe 'ga-apache2::default'
+include_recipe 'ga-apache2::mod_expires'
 
 directory "#{node['apache_test']['root_dir']}/cachetest" do
   action :create
