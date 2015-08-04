@@ -1,5 +1,5 @@
 #
-# Cookbook Name:: apache2
+# Cookbook Name:: ga-apache2
 # Recipe:: mod_authz_default
 #
 # Copyright 2013, Chef Software, Inc.
@@ -17,5 +17,5 @@
 # limitations under the License.
 #
 #
-log 'apache2::mod_authz_default is deprecated in favor of apache2::mod_authz_core. Please adjust your cookbooks'
+log 'ga-apache2::mod_authz_default is deprecated in favor of ga-apache2::mod_authz_core. Please adjust your cookbooks'
 include_recipe 'ga-apache2::mod_authz_core'

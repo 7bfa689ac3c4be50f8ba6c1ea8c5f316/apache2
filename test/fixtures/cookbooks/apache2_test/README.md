@@ -12,7 +12,7 @@ Requirements
 
 ## Cookbooks:
 
-This cookbook depends on the `apache2` cookbook. It also relies on the `yum`
+This cookbook depends on the `ga-apache2` cookbook. It also relies on the `yum`
 cookbook in order to add the EPEL repository on RHEL-derived distributions.
 
 ## Platforms:
@@ -43,7 +43,7 @@ Attributes
 Recipes
 =======
 
-* `default` - Simply includes apache2::default for a vanilla apache install.
+* `default` - Simply includes ga-apache2::default for a vanilla apache install.
 * `mod_auth_basic` - Adds a web_app behind basic authentication for testing.
 * `mod_auth_digest` - Adds a web_app behind digest authenticaiton for testing.
 * `mod_auth_openid` - Adds a web_app behind openid authentication for testing.

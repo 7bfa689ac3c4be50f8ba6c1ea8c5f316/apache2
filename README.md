@@ -73,11 +73,11 @@ provider. Alternately, you can use ufw, with Opscode's `ufw` and
 documentation.
 
 Build/compile tools may not be installed on the system by default.
-Some recipes (e.g., `apache2::mod_auth_openid`) build the module from
+Some recipes (e.g., `ga-apache2::mod_auth_openid`) build the module from
 source. Use Opscode's `build-essential` cookbook to get essential
 build packages installed.
 
-On ArchLinux, if you are using the `apache2::mod_auth_openid` recipe,
+On ArchLinux, if you are using the `ga-apache2::mod_auth_openid` recipe,
 you also need the `pacman` cookbook for the `pacman_aur` LWRP. Put
 `recipe[pacman]` on the node's expanded run list (on the node or in a
 role). This is not an explicit dependency because it is only required
@@ -111,7 +111,7 @@ tested manually but are not tested under test-kitchen.
 
 On Red Hat Enterprise Linux and derivatives, the EPEL repository may
 be necessary to install packages used in certain recipes. The
-`apache2::default` recipe, however, does not require any additional
+`ga-apache2::default` recipe, however, does not require any additional
 repositories. Opscode's `yum-epel` cookbook can be used to add the
 EPEL repository. See __Examples__ for more information.
 
@@ -155,7 +155,7 @@ the top of the file.
 * `node['apache']['user']` - User Apache runs as
 * `node['apache']['group']` - Group Apache runs as
 * `node['apache']['binary']` - Apache httpd server daemon
-* `node['apache']['conf_dir']` - Location for the main config file (e.g apache2.conf or httpd.conf)
+* `node['apache']['conf_dir']` - Location for the main config file (e.g ga-apache2.conf or httpd.conf)
 * `node['apache']['docroot_dir']` - Location for docroot
 * `node['apache']['cgibin_dir']` - Location for cgi-bin
 * `node['apache']['icondir']` - Location for icons
@@ -589,10 +589,10 @@ reflects that. However it is flexible.
 This definition includes some recipes to make sure the system is
 configured to have Apache and some sane default modules:
 
-* `apache2`
-* `apache2::mod_rewrite`
-* `apache2::mod_deflate`
-* `apache2::mod_headers`
+* `ga-apache2`
+* `ga-apache2::mod_rewrite`
+* `ga-apache2::mod_deflate`
+* `ga-apache2::mod_headers`
 
 It will then configure the template (see __Parameters__ and
 __Examples__ below), and enable or disable the site per the `enable`
@@ -627,7 +627,7 @@ the apache httpd directives defining the `VirtualHost` that would serve up "my_a
 ``````
 
 All parameters are passed into the template. You can use whatever you
-like. The apache2 cookbook comes with a `web_app.conf.erb` template as
+like. The ga-apache2 cookbook comes with a `web_app.conf.erb` template as
 an example. The following parameters are used in the template:
 
 * `server_name` - ServerName directive.
@@ -645,7 +645,7 @@ To use the default web_app, for example:
       server_name node['hostname']
       server_aliases [node['fqdn'], "my-site.example.com"]
       docroot "/srv/www/my_site"
-      cookbook 'apache2'
+      cookbook 'ga-apache2'
     end
 ``````
 
@@ -674,8 +674,8 @@ create a basic role for web servers that provide both HTTP and HTTPS:
     name "webserver"
     description "Systems that serve HTTP and HTTPS"
     run_list(
-      "recipe[apache2]",
-      "recipe[apache2::mod_ssl]"
+      "recipe[ga-apache2]",
+      "recipe[ga-apache2::mod_ssl]"
     )
     default_attributes(
       "apache" => {

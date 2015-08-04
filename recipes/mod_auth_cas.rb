@@ -1,5 +1,5 @@
 #
-# Cookbook Name:: apache2
+# Cookbook Name:: ga-apache2
 # Recipe:: mod_auth_cas
 #
 # Copyright 2013, Chef Software, Inc.

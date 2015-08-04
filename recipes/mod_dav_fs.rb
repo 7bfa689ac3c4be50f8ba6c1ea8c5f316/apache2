@@ -1,5 +1,5 @@
 #
-# Cookbook Name:: apache2
+# Cookbook Name:: ga-apache2
 # Recipe:: mod_dav_fs
 #
 # Copyright 2011-2013, Atriso

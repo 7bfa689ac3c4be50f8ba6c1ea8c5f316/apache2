@@ -17,7 +17,7 @@ require "#{ENV['BUSSER_ROOT']}/../kitchen/data/serverspec_helper"
 
 property[:apache][:default_modules].each do |expected_module|
   expected_module = 'authz_default' if expected_module == 'authz_core' &&  property[:apache][:version] != '2.4'
-  describe "apache2::mod_#{expected_module}" do
+  describe "ga-apache2::mod_#{expected_module}" do
     subject(:available) { file("#{property[:apache][:dir]}/mods-available/#{expected_module}.load") }
     it "mods-available/#{expected_module}.load is accurate" do
       expect(available).to be_file

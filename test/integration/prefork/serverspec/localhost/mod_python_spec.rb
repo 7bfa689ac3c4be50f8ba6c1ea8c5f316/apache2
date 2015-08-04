@@ -17,7 +17,7 @@ require "#{ENV['BUSSER_ROOT']}/../kitchen/data/serverspec_helper"
 if property[:apache][:version] == '2.4' && %w(redhat redhat7 fedora).include?(os[:family])
 
 else
-  describe 'apache2::mod_python' do
+  describe 'ga-apache2::mod_python' do
     expected_module = 'python'
     subject(:available) { file("#{property[:apache][:dir]}/mods-available/#{expected_module}.load") }
     it "mods-available/#{expected_module}.load is accurate" do

@@ -1,5 +1,5 @@
 #
-# Cookbook Name:: apache2
+# Cookbook Name:: ga-apache2
 # Recipe:: mod_dav_lock
 #
 # Copyright 2013, OneHealth Solutions, Inc.

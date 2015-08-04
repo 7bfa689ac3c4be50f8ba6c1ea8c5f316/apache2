@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe 'apache2::mod_auth_openid' do
+describe 'ga-apache2::mod_auth_openid' do
   supported_platforms.each do |platform, versions|
     versions.each do |version|
       context "on #{platform.capitalize} #{version}" do
@@ -47,7 +47,7 @@ describe 'apache2::mod_auth_openid' do
           end
         end
 
-        it_should_behave_like 'an apache2 module', 'authopenid', false, 'mod_auth_openid.so'
+        it_should_behave_like 'an ga-apache2 module', 'authopenid', false, 'mod_auth_openid.so'
       end
     end
   end

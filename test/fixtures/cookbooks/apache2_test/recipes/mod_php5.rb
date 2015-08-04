@@ -1,5 +1,5 @@
 #
-# Cookbook Name:: apache2_test
+# Cookbook Name:: ga-apache2_test
 # Recipe:: mod_php5
 #
 # Copyright 2012, Chef Software, Inc.

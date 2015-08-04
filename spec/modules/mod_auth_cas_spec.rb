@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe 'apache2::mod_auth_cas' do
+describe 'ga-apache2::mod_auth_cas' do
   supported_platforms.each do |platform, versions|
     versions.each do |version|
       property = load_platform_properties(:platform => platform, :platform_version => version)
@@ -16,7 +16,7 @@ describe 'apache2::mod_auth_cas' do
       end
 
       context "on #{platform.capitalize} #{version}" do
-        it_should_behave_like 'an apache2 module', 'auth_cas', true
+        it_should_behave_like 'an ga-apache2 module', 'auth_cas', true
       end
     end
   end

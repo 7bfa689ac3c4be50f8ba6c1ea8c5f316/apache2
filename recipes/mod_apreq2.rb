@@ -1,5 +1,5 @@
 #
-# Cookbook Name:: apache2
+# Cookbook Name:: ga-apache2
 # Recipe:: apreq2
 #
 # modified from the python recipe by Jeremy Bingham
@@ -25,7 +25,7 @@ case node['platform_family']
 when 'debian'
   package 'libapache2-mod-apreq2'
 when 'suse'
-  package 'apache2-mod_apreq2' do
+  package 'ga-apache2-mod_apreq2' do
     notifies :run, 'execute[generate-module-list]', :immediately
   end
 when 'rhel', 'fedora'

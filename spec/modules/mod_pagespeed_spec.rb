@@ -2,7 +2,7 @@ require 'spec_helper'
 
 platforms = supported_platforms.select { |key, _| %w(debian ubuntu).include?(key) }
 
-describe 'apache2::mod_pagespeed' do
+describe 'ga-apache2::mod_pagespeed' do
   platforms.each do |platform, versions|
     versions.each do |version|
       context "on #{platform.capitalize} #{version}" do
@@ -22,7 +22,7 @@ describe 'apache2::mod_pagespeed' do
           expect(chef_run).to install_package('mod_pagespeed')
           expect(chef_run).to_not install_package('not_mod_pagespeed')
         end
-        it_should_behave_like 'an apache2 module', 'pagespeed', true
+        it_should_behave_like 'an ga-apache2 module', 'pagespeed', true
       end
     end
   end

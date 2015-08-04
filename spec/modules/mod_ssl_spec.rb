@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe 'apache2::mod_ssl' do
+describe 'ga-apache2::mod_ssl' do
   supported_platforms.each do |platform, versions|
     versions.each do |version|
       context "on #{platform.capitalize} #{version}" do
@@ -45,7 +45,7 @@ describe 'apache2::mod_ssl' do
           expect(template).to notify('service[apache2]').to(:restart)
           expect(template).to_not notify('service[apache2]').to(:stop)
         end
-        it_should_behave_like 'an apache2 module', 'ssl', true
+        it_should_behave_like 'an ga-apache2 module', 'ssl', true
       end
     end
   end

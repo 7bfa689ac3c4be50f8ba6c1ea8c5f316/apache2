@@ -1,5 +1,5 @@
 #
-# Cookbook Name:: apache2_test
+# Cookbook Name:: ga-apache2_test
 # Recipe:: mod_authnz_ldap
 #
 # Copyright 2012, Chef Software, Inc.
@@ -29,7 +29,7 @@ service 'slapd' do
 end
 
 cbf = resources("cookbook_file[#{node['openldap']['ssl_dir']}/#{node['openldap']['server']}.pem]")
-cbf.cookbook 'apache2_test'
+cbf.cookbook 'ga-apache2_test'
 
 ldif_path = '/tmp/entries.ldif'
 

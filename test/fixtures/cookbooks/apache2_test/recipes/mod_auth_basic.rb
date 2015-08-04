@@ -1,5 +1,5 @@
 #
-# Cookbook Name:: apache2_test
+# Cookbook Name:: ga-apache2_test
 # Recipe:: mod_auth_basic
 #
 # Copyright 2012, Chef Software, Inc.
@@ -24,7 +24,7 @@ directory "#{node['apache_test']['root_dir']}/secure" do
   action :create
 end
 
-package 'apache2-utils' if platform_family?('debian', 'suse') && node['apache']['version'] == '2.4'
+package 'ga-apache2-utils' if platform_family?('debian', 'suse') && node['apache']['version'] == '2.4'
 
 execute 'add-credentials' do
   case node['platform_family']

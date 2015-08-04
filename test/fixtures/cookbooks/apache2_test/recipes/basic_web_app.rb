@@ -1,5 +1,5 @@
 #
-# Cookbook Name:: apache2_test
+# Cookbook Name:: ga-apache2_test
 # Recipe:: basic_web_app
 #
 # Copyright 2012, Chef Software, Inc.
@@ -32,7 +32,7 @@ file "#{app_dir}/index.html" do
 end
 
 web_app 'basic_webapp' do
-  cookbook 'apache2'
+  cookbook 'ga-apache2'
   server_name node['hostname']
   server_aliases [node['fqdn']]
   docroot app_dir

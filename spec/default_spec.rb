@@ -2,7 +2,7 @@ require 'spec_helper'
 
 # examples at https://github.com/sethvargo/chefspec/tree/master/examples
 
-describe 'apache2::default' do
+describe 'ga-apache2::default' do
   before do
     allow(::File).to receive(:symlink?).and_return(false)
   end
@@ -92,14 +92,14 @@ describe 'apache2::default' do
               expect(execute).to do_nothing
             end
 
-            it 'includes the `apache2::mod_deflate` recipe' do
-              expect(chef_run).to include_recipe('apache2::mod_deflate')
+            it 'includes the `ga-apache2::mod_deflate` recipe' do
+              expect(chef_run).to include_recipe('ga-apache2::mod_deflate')
             end
           end
 
           it "creates #{property[:apache][:conf]}" do
             expect(chef_run).to create_template(property[:apache][:conf]).with(
-              :source => 'apache2.conf.erb',
+              :source => 'ga-apache2.conf.erb',
               :owner => 'root',
               :group => property[:apache][:root_group],
               :mode =>  '0644'
@@ -248,8 +248,8 @@ describe 'apache2::default' do
 
           property[:apache][:default_modules].each do |mod|
             module_recipe_name = mod =~ /^mod_/ ? mod : "mod_#{mod}"
-            it "includes the `apache2::#{module_recipe_name}` recipe" do
-              expect(chef_run).to include_recipe("apache2::#{module_recipe_name}")
+            it "includes the `ga-apache2::#{module_recipe_name}` recipe" do
+              expect(chef_run).to include_recipe("ga-apache2::#{module_recipe_name}")
             end
           end
 
@@ -269,8 +269,8 @@ describe 'apache2::default' do
             expect(chef_run).to delete_link("#{property[:apache][:dir]}/sites-enabled/000-default.conf")
           end
 
-          it 'enables and starts the apache2 service' do
-            expect(chef_run).to enable_service('apache2').with(
+          it 'enables and starts the ga-apache2 service' do
+            expect(chef_run).to enable_service('ga-apache2').with(
               :service_name => property[:apache][:service_name],
               :restart_command => property[:apache][:service_restart_command],
               :reload_command => property[:apache][:service_reload_command],
@@ -292,7 +292,7 @@ describe 'apache2::default' do
 
           it "creates #{property[:apache][:conf]}" do
             expect(chef_run).to create_template(property[:apache][:conf]).with(
-              :source => 'apache2.conf.erb',
+              :source => 'ga-apache2.conf.erb',
               :owner => 'root',
               :group => property[:apache][:root_group],
               :mode =>  '0644'
@@ -309,8 +309,8 @@ describe 'apache2::default' do
             @chef_run.converge(described_recipe)
           end
 
-          it 'does not enable/start apache2 service' do
-            expect(chef_run).to_not enable_service('apache2').with(
+          it 'does not enable/start ga-apache2 service' do
+            expect(chef_run).to_not enable_service('ga-apache2').with(
               :service_name => property[:apache][:service_name],
               :restart_command => property[:apache][:service_restart_command],
               :reload_command => property[:apache][:service_reload_command],

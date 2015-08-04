@@ -1,5 +1,5 @@
 #
-# Cookbook Name:: apache2
+# Cookbook Name:: ga-apache2
 # Definition:: apache_conf
 #
 # Copyright 2008-2013, Chef Software, Inc.

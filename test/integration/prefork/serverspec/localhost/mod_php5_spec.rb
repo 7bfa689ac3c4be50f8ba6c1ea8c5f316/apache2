@@ -15,7 +15,7 @@
 #
 require "#{ENV['BUSSER_ROOT']}/../kitchen/data/serverspec_helper"
 
-describe 'apache2::mod_php5' do
+describe 'ga-apache2::mod_php5' do
   expected_module = 'php5'
   subject(:available) { file("#{property[:apache][:dir]}/mods-available/#{expected_module}.load") }
   it "mods-available/#{expected_module}.load is accurate" do
